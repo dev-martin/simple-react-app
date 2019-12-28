@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>cmsc389n fall 2019</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="ex4.css">
+  <style>
+  .para2 { color : green}
+  </style>
+
+</head>
+
+<body>
+
+  <div id="root" class="container"></div>
+
+  <script type="text/babel">
+    // YOUR CODE HERE
+    //import Para1 from './Para1'
+
+    function Para1(props) {
+       return <p>{props.children}</p>
+    }
+    function Para2(props) {
+       return <p className="para2">{props.children}</p>
+    }
+    function Para3(props) {
+      var para3Style = {
+        color: "blue",
+       }
+       return <p style={para3Style}>{props.children}</p>
+    }
+    var text = prompt("Text to display")
+    class Paragraphs extends React.Component {
+      render() {
+        return <div><Para1>{this.props.input}</Para1>
+                  <Para2>{this.props.input}</Para2>
+                  <Para3>{this.props.input}</Para3></div>
+      } 
+    }
+    ReactDOM.render(
+      <Paragraphs input={text} />,
+      document.querySelector("#root"));
+  </script>
+</body>
+
+</html>
